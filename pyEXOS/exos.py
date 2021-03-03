@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """ pyexos """
 
 import difflib
@@ -288,6 +287,15 @@ class EXOS(object):
         except (EXOSException, ValueError, NetMikoTimeoutException):
             self.log.error('error', exc_info=True)
             raise
+
+    def send_command_timing(self, command):
+        try:
+            output = self.device.send_command_timing(command)
+        except (ValueError, IndexError, IOError):
+            self.log.error('error', exc_info=True)
+            raise
+
+        return output
 
     def _generate_commands(self):  # noqa
         """
