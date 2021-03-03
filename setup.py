@@ -9,7 +9,7 @@ except ImportError: # for pip <= 9.0.3
 import uuid
 
 install_reqs = parse_requirements('requirements.txt', session=uuid.uuid1())
-reqs = [str(ir.req) for ir in install_reqs]
+reqs = []
 
 version = '0.2'
 
